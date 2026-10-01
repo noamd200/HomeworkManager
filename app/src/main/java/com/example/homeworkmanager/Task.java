@@ -1,6 +1,6 @@
 package com.example.homeworkmanager;
 
-public abstract class Task {
+public abstract class Task implements Rewardable{
     public enum Priority {
         LOW(1),
         MEDIUM(3),
@@ -38,8 +38,12 @@ public abstract class Task {
     }
 
     @Override
-    public String toString(){ return "TBA"; }
+    public String toString() {
+        return "[" + getType() + "] ID: " + id + " | " + title + " (" + subject + ") | Priority: "
+                + priority + " | Due: " + dueDate + " | Done: " + done + " | Points: " + getPoints();
+    }
 
+    @Override
     public int getPoints(){ return 0; }
 
     public int getPriorityBonus(){ return 0; }

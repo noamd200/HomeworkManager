@@ -14,7 +14,10 @@ public class ExamTask extends Task{
     }
 
     @Override
-    public String toString(){ return "TBA"; }
+    public String toString() {
+        return "[" + getType() + "] ID: " + getId() + " | " + getTitle() + " (" + getSubject() + ") | Topics: " + topics + " | " +
+                "Priority: " + getPriority() + " | Due: " + getDueDate() + " | Done: " + isDone() + " | Points: " + getPoints();
+    }
 
     @Override
     public int getPoints(){
