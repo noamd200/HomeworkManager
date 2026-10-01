@@ -3,7 +3,7 @@ package com.example.homeworkmanager;
 public class ExamTask extends Task{
     private int topics;
 
-    public ExamTask(int topics, int id, String title, String subject, Priority priority, String dueDate){
+    public ExamTask(int topics, int id, String title, Subject subject, Priority priority, String dueDate){
         super(id, title, subject, priority, dueDate);
         this.topics = topics;
     }

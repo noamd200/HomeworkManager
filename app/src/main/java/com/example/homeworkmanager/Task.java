@@ -17,14 +17,42 @@ public abstract class Task implements Rewardable{
         }
     }
 
+    public enum Subject {
+        MATH("Math"),
+        ENGLISH("English"),
+        COMPUTER_SCIENCE("Computer Science"),
+        PHYSICS("Physics"),
+        HISTORY("History");
+
+        private final String displayName;
+
+        Subject(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
+
+        // Helper method to convert a display name back to the Enum
+        public static Subject fromDisplayName(String text) {
+            for (Subject s : Subject.values()) {
+                if (s.displayName.equalsIgnoreCase(text)) {
+                    return s;
+                }
+            }
+            return null;
+        }
+    }
+
     private final int id;
     private String title;
-    private String subject;
+    private Subject subject;
     private Priority priority;
     private String dueDate;
     private boolean done;
 
-    public Task(int id, String title, String subject, Priority priority, String dueDate) {
+    public Task(int id, String title, Subject subject, Priority priority, String dueDate) {
         this.id = id;
         this.title = title;
         this.subject = subject;
@@ -54,8 +82,8 @@ public abstract class Task implements Rewardable{
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 
-    public String getSubject() { return subject; }
-    public void setSubject(String subject) { this.subject = subject; }
+    public Subject getSubject() { return subject; }
+    public void setSubject(Subject subject) { this.subject = subject; }
 
     public Priority getPriority() { return priority; }
     public void setPriority(Priority priority) { this.priority = priority; }
