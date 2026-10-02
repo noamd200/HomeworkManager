@@ -18,8 +18,9 @@ public class HomeworkTask extends Task{
 
     @Override
     public String toString() {
-        return "[" + getType() + "] ID: " + getId() + " | " + getTitle() + " (" + getSubject() + ") | Exercises: " + exercises + " | " +
-                "Priority: " + getPriority() + " | Due: " + getDueDate() + " | Done: " + isDone() + " | Points: " + getPoints();
+        String statusPrefix = isDone() ? "[DONE] " : "";
+        return statusPrefix + getTitle() + "\n" +
+                "Homework · " + getSubject().getDisplayName() + " · Due: " + getDueDate();
     }
 
     @Override

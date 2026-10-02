@@ -18,8 +18,9 @@ public class ExamTask extends Task{
 
     @Override
     public String toString() {
-        return "[" + getType() + "] ID: " + getId() + " | " + getTitle() + " (" + getSubject() + ") | Topics: " + topics + " | " +
-                "Priority: " + getPriority() + " | Due: " + getDueDate() + " | Done: " + isDone() + " | Points: " + getPoints();
+        String statusPrefix = isDone() ? "[DONE] " : "";
+        return statusPrefix + getTitle() + "\n" +
+                "Exam · " + getSubject().getDisplayName() + " · Due: " + getDueDate();
     }
 
     @Override
