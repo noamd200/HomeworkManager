@@ -97,6 +97,24 @@ public class SecondActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
+        taskList.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedString = displayList.get(position);
+            Task clickedTask = null;
+
+            // Find the task in taskArrayList that matches the clicked string
+            for (Task task : taskArrayList) {
+                if (task != null && task.toString().equals(selectedString)) {
+                    clickedTask = task;
+                    break;
+                }
+            }
+
+            if (clickedTask != null) {
+                Intent intent = new Intent(SecondActivity.this, FourthActivity.class);
+                intent.putExtra("TASK_ID", clickedTask.getId());
+                startActivity(intent);
+            }
+        });
 
         UpdateInfo();
 
@@ -203,5 +221,13 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Refresh task list from SharedPreferences on screen focus
+        taskArrayList = loadTasks();
+        UpdateInfo();
     }
 }

@@ -14,6 +14,9 @@ public class HomeworkTask extends Task{
     }
 
     @Override
+    public int getExtra() { return this.exercises; }
+
+    @Override
     public String toString() {
         return "[" + getType() + "] ID: " + getId() + " | " + getTitle() + " (" + getSubject() + ") | Exercises: " + exercises + " | " +
                 "Priority: " + getPriority() + " | Due: " + getDueDate() + " | Done: " + isDone() + " | Points: " + getPoints();

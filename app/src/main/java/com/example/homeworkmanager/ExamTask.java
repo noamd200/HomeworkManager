@@ -14,6 +14,9 @@ public class ExamTask extends Task{
     }
 
     @Override
+    public int getExtra() { return this.topics; }
+
+    @Override
     public String toString() {
         return "[" + getType() + "] ID: " + getId() + " | " + getTitle() + " (" + getSubject() + ") | Topics: " + topics + " | " +
                 "Priority: " + getPriority() + " | Due: " + getDueDate() + " | Done: " + isDone() + " | Points: " + getPoints();

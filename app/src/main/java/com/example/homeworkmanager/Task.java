@@ -65,6 +65,8 @@ public abstract class Task implements Rewardable{
         return "n/a";
     }
 
+    public int getExtra() { return -1; }
+
     @Override
     public String toString() {
         return "[" + getType() + "] ID: " + id + " | " + title + " (" + subject + ") | Priority: "
