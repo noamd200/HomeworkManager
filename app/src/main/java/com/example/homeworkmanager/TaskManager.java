@@ -115,6 +115,9 @@ public class TaskManager {
     // Generates the next available task ID (highest current ID + 1).
     public int nextId() {
         ArrayList<Task> tasks = loadAllTasks();
+        if (tasks.isEmpty()){
+            return 0;
+        }
         int maxId = 0;
         for (Task task : tasks) {
             if (task != null && task.getId() > maxId) {

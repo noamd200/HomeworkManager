@@ -101,6 +101,7 @@ public class SecondActivity extends AppCompatActivity {
         UpdateInfo();
 
         logOutBtn.setOnClickListener(v -> showLogoutDialog());
+        addNewBtn.setOnClickListener(v -> addNewTask());
 
     }
 
@@ -194,6 +195,13 @@ public class SecondActivity extends AppCompatActivity {
         taskManager.saveAll(taskArrayList);
 
         Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void addNewTask(){
+        taskManager.saveAll(taskArrayList);
+
+        Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
         startActivity(intent);
     }
 }
